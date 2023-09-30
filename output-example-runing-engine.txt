@@ -7,7 +7,7 @@ Available serial ports:
 Enter desired serial: 2
 
 
------------ Honda ----------- CRF 300L Rally EU ----------- VIN: MLHND16A6M5000588 ----------
+----------- Honda ----------- CRF 300L Rally EU ----------- VIN: MLHND16A6M50XXXXX ----------
 
 
   Mode  PID    Active    Description                         Value
@@ -18,7 +18,7 @@ Enter desired serial: 2
     01  20     Yes       Supported PIDs [21-40]              10000000000000000000000000000001
     01  40     Yes       Supported PIDs [41-60]              10000000000000000000000000000000
     09  00     Yes       Supported PIDs [01-20]              0101010101000000000000000000000000000000
-    09  02     Yes       Vehicle Identification Number       bytearray(b'MLHND16A6M5000588')
+    09  02     Yes       Vehicle Identification Number       bytearray(b'MLHND16A6M50XXXXX')
     03         Yes       Get DTCs                            []
 
 
@@ -126,7 +126,7 @@ Enter desired serial: 2
 ------  -----  --------  ---------------------------------------  ----------------------------------------
     09     00  Yes       Supported PIDs [01-20]                   0101010101000000000000000000000000000000
     09     01  No        VIN Message Count                        not supported
-    09     02  Yes       Vehicle Identification Number            bytearray(b'MLHND16A6M5000588')
+    09     02  Yes       Vehicle Identification Number            bytearray(b'MLHND16A6M50XXXXX')
     09     03  No        Calibration ID message count for PID 04  not supported
     09     04  Yes       Calibration ID                           bytearray(b'407')
     09     05  No        CVN Message Count for PID 06             not supported
