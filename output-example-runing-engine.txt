@@ -4,6 +4,7 @@ Available serial ports:
 2. \.\COM4
 3. \.\COM5
 
+
 Enter desired serial: 2
 
 
