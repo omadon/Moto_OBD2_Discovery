@@ -1,2 +1,158 @@
 # Moto_OBD2_Discovery
-Python script for discovery supported PIDS on motorcycle using OBD2
+Discover supported PIDS on motorcycle using OBD2 using python.
+
+This simple script will use python obd module and collect all available 
+commands over OBD2 connection.
+
+Required Hardware:
+   - any ELM327 clone (Double PCB Mini ELM327 Bluetooth V1.5 PIC18F25K80) 
+   - ObdLinx Sx, Lx Cx, Ex, Mx
+
+Software:                                                               
+    Python 3.11.x
+        - Download and install python from https://www.python.org/downloads/
+        - Dont forget pip in the installation
+    Install required modules:                                                              
+        pip install obd                                                       
+        pip install tabulate                                                  
+                                                                         
+ Connect to the OBD2 dongle via Bluetooth.                               
+ Virtual Serial port using OBD2 dongle will be connected to the PC.                        
+ Use device manager on Windows to locate new serial ports.             
+ Some OBD dongles will create two serial port, try both of them if it is not working.
+
+ Run the script and choose serial from the list. Example is below...
+
+ C:\OBD2>python OBD_supported_features.py
+Available serial ports:
+1. \.\COM3
+2. \.\COM4
+3. \.\COM5
+
+Enter desired serial: 2
+
+
+----------- Honda ----------- CRF 300L Rally EU ----------- VIN: MLHND16A6M5000588 ----------
+
+
+  Mode  PID    Active    Description                         Value
+------  -----  --------  ----------------------------------  ----------------------------------------
+    00  ATI    Yes       ELM327 version string               OBDII  v1.5
+    00  ATRV   Yes       Voltage detected by OBD-II adapter  14.6 volt
+    01  00     Yes       Supported PIDs [01-20]              01111100001111101100000000010001
+    01  20     Yes       Supported PIDs [21-40]              10000000000000000000000000000001
+    01  40     Yes       Supported PIDs [41-60]              10000000000000000000000000000000
+    09  00     Yes       Supported PIDs [01-20]              0101010101000000000000000000000000000000
+    09  02     Yes       Vehicle Identification Number       bytearray(b'MLHND16A6M5000588')
+    03         Yes       Get DTCs                            []
+
+
+  Mode  PID    Active    Description                              Value
+------  -----  --------  ---------------------------------------  --------------------------------------------------------
+    01  00     Yes       Supported PIDs [01-20]                   01111100001111101100000000010001
+    01  01     No        Status since DTCs cleared                not supported
+    01  02     Yes       DTC that triggered the freeze frame      ('P0000', '')
+    01  03     Yes       Fuel System Status                       ('Open loop due to insufficient engine temperature', '')
+    01  04     Yes       Calculated Engine Load                   26.274509803921568 percent
+    01  05     Yes       Engine Coolant Temperature               24 degree_Celsius
+    01  06     Yes       Short Term Fuel Trim - Bank 1            0.0 percent
+    01  07     No        Long Term Fuel Trim - Bank 1             not supported
+    01  08     No        Short Term Fuel Trim - Bank 2            not supported
+    01  09     No        Long Term Fuel Trim - Bank 2             not supported
+    01  0A     No        Fuel Pressure                            not supported
+    01  0B     Yes       Intake Manifold Pressure                 47 kilopascal
+    01  0C     Yes       Engine RPM                               2106.0 revolutions_per_minute
+    01  0D     Yes       Vehicle Speed                            0.0 kilometer_per_hour
+    01  0E     Yes       Timing Advance                           23.5 degree
+    01  0F     Yes       Intake Air Temp                          22 degree_Celsius
+    01  10     No        Air Flow Rate (MAF)                      not supported
+    01  11     Yes       Throttle Position                        10.196078431372548 percent
+    01  12     Yes       Secondary Air Status                     Upstream
+    01  13     No        O2 Sensors Present                       not supported
+    01  14     No        O2: Bank 1 - Sensor 1 Voltage            not supported
+    01  15     No        O2: Bank 1 - Sensor 2 Voltage            not supported
+    01  16     No        O2: Bank 1 - Sensor 3 Voltage            not supported
+    01  17     No        O2: Bank 1 - Sensor 4 Voltage            not supported
+    01  18     No        O2: Bank 2 - Sensor 1 Voltage            not supported
+    01  19     No        O2: Bank 2 - Sensor 2 Voltage            not supported
+    01  1A     No        O2: Bank 2 - Sensor 3 Voltage            not supported
+    01  1B     No        O2: Bank 2 - Sensor 4 Voltage            not supported
+    01  1C     Yes       OBD Standards Compliance                 not supported
+    01  1D     No        O2 Sensors Present (alternate)           not supported
+    01  1E     No        Auxiliary input status (power take off)  not supported
+    01  1F     No        Engine Run Time                          not supported
+    01  20     Yes       Supported PIDs [21-40]                   10000000000000000000000000000001
+    01  21     Yes       Distance Traveled with MIL on            0.0 kilometer
+    01  22     No        Fuel Rail Pressure (relative to vacuum)  not supported
+    01  23     No        Fuel Rail Pressure (direct inject)       not supported
+    01  24     No        02 Sensor 1 WR Lambda Voltage            not supported
+    01  25     No        02 Sensor 2 WR Lambda Voltage            not supported
+    01  26     No        02 Sensor 3 WR Lambda Voltage            not supported
+    01  27     No        02 Sensor 4 WR Lambda Voltage            not supported
+    01  28     No        02 Sensor 5 WR Lambda Voltage            not supported
+    01  29     No        02 Sensor 6 WR Lambda Voltage            not supported
+    01  2A     No        02 Sensor 7 WR Lambda Voltage            not supported
+    01  2B     No        02 Sensor 8 WR Lambda Voltage            not supported
+    01  2C     No        Commanded EGR                            not supported
+    01  2D     No        EGR Error                                not supported
+    01  2E     No        Commanded Evaporative Purge              not supported
+    01  2F     No        Fuel Level Input                         not supported
+    01  30     No        Number of warm-ups since codes cleared   not supported
+    01  31     No        Distance traveled since codes cleared    not supported
+    01  32     No        Evaporative system vapor pressure        not supported
+    01  33     No        Barometric Pressure                      not supported
+    01  34     No        02 Sensor 1 WR Lambda Current            not supported
+    01  35     No        02 Sensor 2 WR Lambda Current            not supported
+    01  36     No        02 Sensor 3 WR Lambda Current            not supported
+    01  37     No        02 Sensor 4 WR Lambda Current            not supported
+    01  38     No        02 Sensor 5 WR Lambda Current            not supported
+    01  39     No        02 Sensor 6 WR Lambda Current            not supported
+    01  3A     No        02 Sensor 7 WR Lambda Current            not supported
+    01  3B     No        02 Sensor 8 WR Lambda Current            not supported
+    01  3C     No        Catalyst Temperature: Bank 1 - Sensor 1  not supported
+    01  3D     No        Catalyst Temperature: Bank 2 - Sensor 1  not supported
+    01  3E     No        Catalyst Temperature: Bank 1 - Sensor 2  not supported
+    01  3F     No        Catalyst Temperature: Bank 2 - Sensor 2  not supported
+    01  40     Yes       Supported PIDs [41-60]                   10000000000000000000000000000000
+    01  41     Yes       Monitor status this drive cycle          False, 0, spark
+    01  42     No        Control module voltage                   not supported
+    01  43     No        Absolute load value                      not supported
+    01  44     No        Commanded equivalence ratio              not supported
+    01  45     No        Relative throttle position               not supported
+    01  46     No        Ambient air temperature                  not supported
+    01  47     No        Absolute throttle position B             not supported
+    01  48     No        Absolute throttle position C             not supported
+    01  49     No        Accelerator pedal position D             not supported
+    01  4A     No        Accelerator pedal position E             not supported
+    01  4B     No        Accelerator pedal position F             not supported
+    01  4C     No        Commanded throttle actuator              not supported
+    01  4D     No        Time run with MIL on                     not supported
+    01  4E     No        Time since trouble codes cleared         not supported
+    01  4F     No        Various Max values                       not supported
+    01  50     No        Maximum value for mass air flow sensor   not supported
+    01  51     No        Fuel Type                                not supported
+    01  52     No        Ethanol Fuel Percent                     not supported
+    01  53     No        Absolute Evap system Vapor Pressure      not supported
+    01  54     No        Evap system vapor pressure               not supported
+    01  55     No        Short term secondary O2 trim - Bank 1    not supported
+    01  56     No        Long term secondary O2 trim - Bank 1     not supported
+    01  57     No        Short term secondary O2 trim - Bank 2    not supported
+    01  58     No        Long term secondary O2 trim - Bank 2     not supported
+    01  59     No        Fuel rail pressure (absolute)            not supported
+    01  5A     No        Relative accelerator pedal position      not supported
+    01  5B     No        Hybrid battery pack remaining life       not supported
+    01  5C     No        Engine oil temperature                   not supported
+    01  5D     No        Fuel injection timing                    not supported
+    01  5E     No        Engine fuel rate                         not supported
+    01  5F     No        Designed emission requirements           not supported
+
+
+  Mode    PID  Active    Description                              Value
+------  -----  --------  ---------------------------------------  ----------------------------------------
+    09     00  Yes       Supported PIDs [01-20]                   0101010101000000000000000000000000000000
+    09     01  No        VIN Message Count                        not supported
+    09     02  Yes       Vehicle Identification Number            bytearray(b'MLHND16A6M5000588')
+    09     03  No        Calibration ID message count for PID 04  not supported
+    09     04  Yes       Calibration ID                           bytearray(b'407')
+    09     05  No        CVN Message Count for PID 06             not supported
+    09     06  Yes       Calibration Verification Numbers
