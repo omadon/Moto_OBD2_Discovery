@@ -2,7 +2,7 @@
 Discover supported PIDS on motorcycle using OBD2 using python.
 
 This simple script will use python obd module and collect all available 
-commands over OBD2 connection.
+commands over OBD2 connection. 
 
 Required Hardware:
    - any ELM327 clone (Double PCB Mini ELM327 Bluetooth V1.5 PIC18F25K80) 
